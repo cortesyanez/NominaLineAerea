@@ -1,0 +1,30 @@
+﻿@model modeloTrabajadores;
+@{
+    ViewData["Title"] = "EliminarTrabajador";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Eliminar Trabajador
+    </div>
+    <div class="card-body">
+        <form asp-action="EliminarTrabajador" asp-controller="Acciones" method="post">
+            <!-- Campo oculto para el ID del trabajador -->
+            <input asp-for="IdEmp_mod" type="hidden" class="form-control" />
+
+            <!-- Alerta de confirmación -->
+            <div class="alert alert-danger" role="alert">
+                ¿Está seguro de dar de baja al trabajador: <strong>@Html.DisplayTextFor(m => m.NomEmp_mod) @Html.DisplayTextFor(m => m.ApaEmp_mod)</strong>?
+            </div>
+
+            <!-- Botón de confirmar eliminación -->
+            <button type="submit" class="btn btn-danger">Eliminar Trabajador</button>
+
+            <!-- Botón para regresar a la lista -->
+            <a asp-action="ListarTrabajadores" asp-controller="Acciones" class="btn btn-warning">
+                Regresar a la Lista
+            </a>
+        </form>
+    </div>
+</div>

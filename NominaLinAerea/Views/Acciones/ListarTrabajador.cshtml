@@ -1,0 +1,63 @@
+﻿@model List<modeloTrabajadores>
+@{
+    ViewData["Title"] = "ListarTrabajadores";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Listar Trabajadores
+    </div>
+    <div class="card-body">
+        <a asp-action="GuardarTrabajador" asp-controller="Acciones" class="btn btn-success">
+            <i class="bi bi-plus-circle"></i> Registrar Trabajador
+        </a>
+        <hr />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID Trabajador</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Sexo</th>
+                    <th>Fecha de Nacimiento</th>
+                    <th>ID Barrio</th>
+                    <th>ID Puesto</th>
+                    <th>ID Tipo Trabajo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.IdEmp_mod</td>
+                        <td>@item.NomEmp_mod</td>
+                        <td>@item.ApaEmp_mod</td>
+                        <td>@item.SexEmp_mod</td>
+                        <td>@item.FNaEmp_mod.ToShortDateString()</td>
+                        <td>@item.IdBar_mod</td>
+                        <td>@item.IdPue_mod</td>
+                        <td>@item.IdTipTra_mod</td>
+                        <td>
+                            <!-- Botón Editar -->
+                            <a asp-action="EditarTrabajador" asp-controller="Acciones"
+                               class="btn btn-primary btn-sm"
+                               asp-route-idTrabajador="@item.IdEmp_mod">
+                                <i class="bi bi-pencil-square"></i> Editar
+                            </a>
+                        </td>
+                        <td>
+                            <!-- Botón Eliminar -->
+                            <a asp-action="EliminarTrabajador" asp-controller="Acciones"
+                               class="btn btn-danger btn-sm"
+                               asp-route-idTrabajador="@item.IdEmp_mod">
+                                <i class="bi bi-trash3"></i> Eliminar
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

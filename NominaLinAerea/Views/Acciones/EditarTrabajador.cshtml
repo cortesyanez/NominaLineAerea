@@ -1,0 +1,79 @@
+﻿@model modeloTrabajadores;
+@{
+    ViewData["Title"] = "EditarTrabajador";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Modificar Trabajador
+    </div>
+    <div class="card-body">
+        <form asp-action="EditarTrabajador" asp-controller="Acciones" method="post">
+            <!-- Campo oculto para el ID del trabajador -->
+            <input asp-for="IdEmp_mod" type="hidden" class="form-control" />
+
+            <!-- ID Trabajador -->
+            <div class="mb-3">
+                <label class="form-label">ID Trabajador:</label>
+                <input asp-for="IdEmp_mod" type="number" class="form-control" />
+                <span asp-validation-for="IdEmp_mod" class="text-danger"></span>
+            </div>
+
+            <!-- Nombre -->
+            <div class="mb-3">
+                <label class="form-label">Nombre del Trabajador:</label>
+                <input asp-for="NomEmp_mod" type="text" class="form-control" />
+                <span asp-validation-for="NomEmp_mod" class="text-danger"></span>
+            </div>
+
+            <!-- Apellido -->
+            <div class="mb-3">
+                <label class="form-label">Apellido del Trabajador:</label>
+                <input asp-for="ApaEmp_mod" type="text" class="form-control" />
+                <span asp-validation-for="ApaEmp_mod" class="text-danger"></span>
+            </div>
+
+            <!-- Sexo -->
+            <div class="mb-3">
+                <label class="form-label">Sexo:</label>
+                <input asp-for="SexEmp_mod" type="text" class="form-control" placeholder="M o F" />
+                <span asp-validation-for="SexEmp_mod" class="text-danger"></span>
+            </div>
+
+            <!-- Fecha de Nacimiento -->
+            <div class="mb-3">
+                <label class="form-label">Fecha de Nacimiento:</label>
+                <input asp-for="FNaEmp_mod" type="date" class="form-control" />
+                <span asp-validation-for="FNaEmp_mod" class="text-danger"></span>
+            </div>
+
+            <!-- ID Barrio -->
+            <div class="mb-3">
+                <label class="form-label">ID Barrio:</label>
+                <input asp-for="IdBar_mod" type="number" class="form-control" />
+                <span asp-validation-for="IdBar_mod" class="text-danger"></span>
+            </div>
+
+            <!-- ID Puesto -->
+            <div class="mb-3">
+                <label class="form-label">ID Puesto:</label>
+                <input asp-for="IdPue_mod" type="number" class="form-control" />
+                <span asp-validation-for="IdPue_mod" class="text-danger"></span>
+            </div>
+
+            <!-- ID Tipo Trabajo -->
+            <div class="mb-3">
+                <label class="form-label">ID Tipo Trabajo:</label>
+                <input asp-for="IdTipTra_mod" type="number" class="form-control" />
+                <span asp-validation-for="IdTipTra_mod" class="text-danger"></span>
+            </div>
+
+            <!-- Botones de acción -->
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+            <a asp-action="ListarTrabajadores" asp-controller="Acciones" class="btn btn-warning">
+                Regresar a la Lista
+            </a>
+        </form>
+    </div>
+</div>
