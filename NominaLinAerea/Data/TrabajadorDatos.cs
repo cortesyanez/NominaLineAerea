@@ -101,7 +101,7 @@ public modeloTrabajadores RegresaTrabajador(Int16 IdTrabajador, Int16 tipOper)
         public bool GuardaModificaTrabajador(modeloTrabajadores Trabajador, Int16 tipOper)
         {
             bool exito = false;
-            string nombreSP = "";
+            //string nombreSP = "";
 
             try
             {
